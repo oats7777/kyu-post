@@ -6,3 +6,10 @@ html(lang="en")
     title 게시판
   body
     h1 게시판
+    ul
+      each result in results
+        li= result.body
+
+    form(action="/addpost" method="post")
+      textarea(name="body")
+      input(type="submit")
