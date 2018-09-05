@@ -6,10 +6,15 @@ html(lang="en")
     title 게시판
   body
     h1 게시판
-    ul
+    form(action="/write" method="post")
+      input(type="submit" value="글쓰기")
+    table
+      tr
+        th ??
+        th 제목
+        th 작성자
       each result in results
-        li= result.body
-
-    form(action="/addpost" method="post")
-      textarea(name="body")
-      input(type="submit")
+        tr
+          td ??
+          td= result.title
+          td ??
