@@ -11,5 +11,7 @@ html(lang="en")
     div
       textarea()=results[0].title
     div
-      textarea(readonly)=results[0].posts
-    button(class="del" type="submit") 삭제
+      textarea()=results[0].posts
+    button(class="del" type="button") 삭제
+    a(href='/postUpdate')
+      button 수정

@@ -1,3 +1,4 @@
+
 // Setup
 const express = require('express'); // express 사용
 const app = express(); // 위에꺼랑 같이 써야됨
@@ -31,8 +32,14 @@ app.get('/viewPage',(req, res) => {
     res.render('viewPage',{ results : results })
   });
 });
+app.get('/postUpdate',(res,req) => {
+  const query =req.query;
+  console.log("쿼리스트링테스트",query);
+  res.redirect('/write?id='+query._id)
+})
 
-// API 
+
+// API
 // add post api
 app.post('/addpost', (req, res) => {
   console.log('req.body', req.body);
@@ -40,19 +47,18 @@ app.post('/addpost', (req, res) => {
   post
     .save()
     .then(aa => {
-      res.redirect('/');
+      console.log(aa);
+      res.redirect('/viewPage?id='+aa._id);
     })
     .catch(err => {
       console.log(`Error in save`);
     });
 });
-
 app.delete("/postDel",(req, res) => {
   const query = req.query;
   console.log(query)
   Post.remove( {_id : query.id} )
     .then( () => {
-      console.log("asdf");
       res.sendStatus(200);
     })
     .catch((err) => {
