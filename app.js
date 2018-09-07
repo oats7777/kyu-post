@@ -32,10 +32,10 @@ app.get('/viewPage',(req, res) => {
     res.render('viewPage',{ results : results })
   });
 });
-app.get('/postUpdate',(res,req) => {
+app.get('/postUpdate',(req,res) => {
   const query =req.query;
   console.log("쿼리스트링테스트",query);
-  res.redirect('/write?id='+query._id)
+  res.redirect('/write?id='+query.id)
 })
 
 
@@ -65,7 +65,7 @@ app.delete("/postDel",(req, res) => {
       console.log(err);
     })
   })
-
+app.put()
 // Listening
 app.listen(3000, () => {
   console.log('Server listening on 3000');
