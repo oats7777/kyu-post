@@ -3,27 +3,18 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+    script(src="/js/update.js")
     title 글작성!
   body
-    form(action="/addpost" method="post")
+    form#postForm(action="/addpost" method="post")
       div
         textarea(name="title")
       div
         textarea(name="posts")
       div
         textarea(name="UserName")
-      div(class="PWPW")
-        input(type="password" name="PW")
-      input(type="submit")
-      
-      //- form(action="/update" method="post")
-      //- input(type="hidden",name='_method',value="PUT")  
-        div
-          textarea(name="title")
-        div
-          textarea(name="posts")
-        div
-          textarea(name="UserName")
-        div
-          input(type="password" name="PW")
-        input(type="submit")
+      div
+        input(type="password" name="PW" class="PW")
+      input(id='postSubmit' type="submit")
+      button(id='fm' type="button") 수정
