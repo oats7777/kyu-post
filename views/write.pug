@@ -5,16 +5,22 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     script(src="https://code.jquery.com/jquery-3.3.1.min.js")
     script(src="/js/update.js")
+    link(href="/css/write.css" rel="stylesheet")
     title 글작성!
   body
+    h1 작성
     form#postForm(action="/addpost" method="post")
       div
-        textarea(name="title" class="titleText")=result.title
+        textarea(name="title" class="titleText" placeholder="제목")=result.title
       div
-        textarea(name="posts" class="postsText")=result.posts
+        textarea(name="posts" class="postsText" placeholder="내용")=result.posts
       div
-        textarea(name="UserName" class="nameText")=result.UserName
+        textarea(name="UserName" class="nameText" placeholder="유저이름")=result.UserName
       div
-        input(type="password" name="PW" class="HIDE")
-      input(class='HIDE' type="submit")
-      button(id='fm' type="button") 수정
+        input(type="password" name="PW" class="HIDE" id="PW" placeholder="비밀번호")
+      input(class='HIDE' type="submit" id="PWB")
+      button(class="back" id="fm" type="button") 수정
+      a(href="/viewpage?id="+result._id class="back")
+        button(type="button") 취소
+      a(href="/" class="HIDE")
+        button(type="button") 취소

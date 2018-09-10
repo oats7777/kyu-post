@@ -22,7 +22,7 @@ $(function() {
     //$('.addpost').hide();
   } else {
     console.log("Test2", id);
-    $("#fm").hide();
+    $(".back").hide();
   }
 
   $("#fm").click(function() {

@@ -1,3 +1,13 @@
-.remove-btn {
-  background-color: red
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic");
+body {
+  font-family: "Nanum Gothic", serif;
+  font-size: 30px;
+}
+#title {
+  height: 20px;
+  width: 70%;
+}
+#posts {
+  height: 200px;
+  width: 70%;
 }

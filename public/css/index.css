@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic");
+
+body {
+  font-family: "Nanum Gothic", serif;
+  font-size: 10px;
+  background-image: url("http://lawncompany.cdn2.cafe24.com/wp/wp-content/uploads/2013/09/top_logo_380.png");
+  background-repeat: no-repeat;
+}
+h1 {
+  color: gray;
+  font-size: 6em;
+}
+table {
+  width: 100%;
+  line-height: 21px;
+  border-top: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  border-collapse: collapse;
+}
+a {
+  text-decoration: none;
+  color: #678197;
+}
+th,
+td {
+  color: #678197;
+  text-align: center;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding: 3px 0px;
+  text-align: center;
+}
+th {
+  background-color: #eeeeee;
+}

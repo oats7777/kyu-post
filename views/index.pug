@@ -4,19 +4,21 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title 게시판
+    link(href="/css/index.css" rel="stylesheet")
   body
-    h1 게시판
-    a(href='/write')
-      button 글쓰기
+    h1(align="center") 게시판
     table
-      tr
-        th ??
-        th 제목
-        th 작성자
-      each result in results
-        tr 
-          td ??
-          td
-            a(href="/viewPage?id="+result._id)
-              span= result.title
-          td= result.UserName
+      thead
+        tr
+          th 작성자
+          th 제목
+      tbody
+        each result in results
+          tr 
+            td= result.UserName
+            td
+              a(href="/viewPage?id="+result._id)
+                span= result.title
+    div
+      a(href='/write')
+        button 글쓰기
