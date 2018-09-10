@@ -18,8 +18,7 @@ $(function() {
   var id = getQueryObject().id;
   if (id) {
     console.log("Test1", id);
-    $(".PW").hide();
-
+    $(".HIDE").hide();
     //$('.addpost').hide();
   } else {
     console.log("Test2", id);

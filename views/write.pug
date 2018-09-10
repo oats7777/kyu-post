@@ -9,12 +9,12 @@ html(lang="en")
   body
     form#postForm(action="/addpost" method="post")
       div
-        textarea(name="title")
+        textarea(name="title" class="titleText")=result.title
       div
-        textarea(name="posts")
+        textarea(name="posts" class="postsText")=result.posts
       div
-        textarea(name="UserName")
+        textarea(name="UserName" class="nameText")=result.UserName
       div
-        input(type="password" name="PW" class="PW")
-      input(id='postSubmit' type="submit")
+        input(type="password" name="PW" class="HIDE")
+      input(class='HIDE' type="submit")
       button(id='fm' type="button") 수정

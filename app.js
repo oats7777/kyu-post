@@ -28,8 +28,18 @@ app.get("/", (req, res) => {
 
 // write page
 app.get("/write", (req, res) => {
-  res.render("write");
+  const query = req.query;
+  console.log(query);
+  if (query.id) {
+    Post.find({ _id: query.id }, (err, result) => {
+      r = result[0];
+      res.render("write", { result: r });
+    });
+  } else {
+    res.render("write", { result: "" });
+  }
 });
+
 app.get("/viewPage", (req, res) => {
   const query = req.query;
   Post.find({ _id: query.id }, (err, results) => {

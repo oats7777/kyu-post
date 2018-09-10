@@ -9,9 +9,9 @@ html(lang="en")
     title 게시판보기
   body
     div
-      textarea()=results[0].title
+      textarea(readonly)=results[0].title
     div
-      textarea()=results[0].posts
+      textarea(readonly)=results[0].posts
     button(class="del" type="button") 삭제
     a(href="/postUpdate?id="+results[0]._id)
       button 수정
