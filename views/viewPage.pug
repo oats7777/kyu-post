@@ -8,7 +8,7 @@ html(lang="en")
     link(href="/css/viewPage.css" rel="stylesheet")
     title 게시판보기
   body
-    h3 내가 쓴 글
+    h3=results[0].UserName + "(이)가 쓴글"
     div
       textarea(readonly id="title")=results[0].title
     div

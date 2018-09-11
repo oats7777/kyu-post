@@ -43,6 +43,9 @@ $(function() {
       data: JSON.parse(data),
       success: function(data) {
         window.location = "/viewPage?id=" + id;
+      },
+      error: function() {
+        alert("비밀번호가 알맞지 않습니다.");
       }
     });
   });

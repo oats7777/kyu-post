@@ -20,6 +20,9 @@ $(function() {
       url: "/postDel?id=" + id + "&JSPW=" + password,
       success: function(msg) {
         window.location = "/";
+      },
+      error: function(msg) {
+        alert("비밀번호가 알맞지 않습니다.");
       }
     });
   });

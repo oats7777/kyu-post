@@ -70,8 +70,12 @@ app.delete("/postDel", (req, res) => {
     {
       $and: [{ _id: query.id }, { PW: query.JSPW }]
     },
-    () => {
-      res.sendStatus(200);
+    function(err, post) {
+      if (query.JSPW == post.PW) {
+        res.sendStatus(200);
+      } else {
+        res.sendStatus(500);
+      }
     }
   );
 });
@@ -87,11 +91,13 @@ app.put("/update", (req, res) => {
       if (req.body.title) post.title = req.body.title;
       if (req.body.posts) post.posts = req.body.posts;
       if (req.body.UserName) post.UserName = req.body.UserName;
+      post.save(function(err) {
+        if (err) res.status(500).json({ error: "failed to update" });
+        res.sendStatus(200);
+      });
+    } else {
+      res.sendStatus(500);
     }
-    post.save(function(err) {
-      if (err) res.status(500).json({ error: "failed to update" });
-      res.sendStatus(200);
-    });
   });
 });
 // Listening
