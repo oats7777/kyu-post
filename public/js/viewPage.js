@@ -13,16 +13,14 @@ var getQueryObject = function() {
 
 $(function() {
   $(".del").click(function() {
-    var DELETE_BOOL = confirm("삭제하시겠습니까?");
-    if (DELETE_BOOL) {
-      var id = getQueryObject().id;
-      $.ajax({
-        type: "DELETE",
-        url: "/postDel?id=" + id,
-        success: function(msg) {
-          window.location = "/";
-        }
-      });
-    }
+    var password = prompt("비밀번호를 입력해주세요");
+    var id = getQueryObject().id;
+    $.ajax({
+      type: "DELETE",
+      url: "/postDel?id=" + id + "&JSPW=" + password,
+      success: function(msg) {
+        window.location = "/";
+      }
+    });
   });
 });

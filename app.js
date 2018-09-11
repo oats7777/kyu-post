@@ -66,27 +66,28 @@ app.post("/addpost", (req, res) => {
 });
 app.delete("/postDel", (req, res) => {
   const query = req.query;
-  Post.remove({ _id: query.id })
-    .then(() => {
+  Post.remove(
+    {
+      $and: [{ _id: query.id }, { PW: query.JSPW }]
+    },
+    () => {
       res.sendStatus(200);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+    }
+  );
 });
 app.put("/update", (req, res) => {
-  const query = req.query.id;
+  const query = req.query;
   console.log(query);
 
   // update db query
-  Post.findById(query, function(err, post) {
+  Post.findById(query.id, function(err, post) {
     if (err) return res.status(500).json({ error: "database failure" });
     if (!post) return res.status(404).json({ error: "post not found" });
-    console.log(req.body.title);
-    if (req.body.title) post.title = req.body.title;
-    if (req.body.posts) post.posts = req.body.posts;
-    if (req.body.UserName) post.UserName = req.body.UserName;
-
+    if (query.JSPW == post.PW) {
+      if (req.body.title) post.title = req.body.title;
+      if (req.body.posts) post.posts = req.body.posts;
+      if (req.body.UserName) post.UserName = req.body.UserName;
+    }
     post.save(function(err) {
       if (err) res.status(500).json({ error: "failed to update" });
       res.sendStatus(200);

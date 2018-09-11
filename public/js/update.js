@@ -26,6 +26,7 @@ $(function() {
   }
 
   $("#fm").click(function() {
+    var password = prompt("비밀번호를 입력해주세요");
     var id = getQueryObject().id;
     var sArr = $("#postForm").serializeArray();
     var data = "";
@@ -38,7 +39,7 @@ $(function() {
     console.log("data", data);
     $.ajax({
       type: "PUT",
-      url: "/update?id=" + id,
+      url: "/update?id=" + id + "&JSPW=" + password,
       data: JSON.parse(data),
       success: function(data) {
         window.location = "/viewPage?id=" + id;
