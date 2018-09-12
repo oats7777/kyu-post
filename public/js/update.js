@@ -44,7 +44,7 @@ $(function() {
       success: function(data) {
         window.location = "/viewPage?id=" + id;
       },
-      error: function() {
+      error: function(msg) {
         alert("비밀번호가 알맞지 않습니다.");
       }
     });

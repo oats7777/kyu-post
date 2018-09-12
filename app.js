@@ -66,18 +66,22 @@ app.post("/addpost", (req, res) => {
 });
 app.delete("/postDel", (req, res) => {
   const query = req.query;
-  Post.remove(
+  /*Post.remove(
     {
       $and: [{ _id: query.id }, { PW: query.JSPW }]
-    },
-    function(err, post) {
-      if (query.JSPW == post.PW) {
-        res.sendStatus(200);
-      } else {
-        res.sendStatus(500);
-      }
     }
-  );
+  ).then(()=>{})*/
+  Post.findById(query.id, function(err, post) {
+    if (query.JSPW == post.PW) {
+      Post.remove({
+        $and: [{ _id: query.id }, { PW: query.JSPW }]
+      }).then(() => {
+        res.sendStatus(200);
+      });
+    } else {
+      res.sendStatus(500);
+    }
+  });
 });
 app.put("/update", (req, res) => {
   const query = req.query;
