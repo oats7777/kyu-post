@@ -1,19 +1,27 @@
 $(function() {
   var getQueryObject = function() {
-    var search = location.search.substring(1);
+    var search = location.search.substr(1);
+    // www.naver.com/aaaa?asfasdf
+    // asdfasdf 반환
     try {
       return JSON.parse(
         '{"' +
-          decodeURI(search)
-            .replace(/"/g, '\\"')
-            .replace(/&/g, '","')
-            .replace(/=/g, '":"') +
+        decodeURI(search) // 인코딩된 URI 해독
+          .replace(/"/g, '\\"') // "로된건 전부 \"로 바꿈
+          .replace(/&/g, '","') // &된건 전부 ","으로 바꿈
+          .replace(/=/g, '":"') + // =된건 전부 ":"로 바꿈
           '"}'
       );
     } catch {
       return {};
     }
   };
+  function pushJson(str) {
+    return str
+      .replace(/\n/g, "\\\\n") // \n \n
+      .replace(/\r/g, "\\\\r")
+      .replace(/\t/g, "\\\\t");
+  }
 
   var id = getQueryObject().id;
   if (id) {
@@ -29,18 +37,19 @@ $(function() {
     var password = prompt("비밀번호를 입력해주세요");
     var id = getQueryObject().id;
     var sArr = $("#postForm").serializeArray();
+    console.log("sArr", sArr);
     var data = "";
     $.each($("#postForm").serializeArray(), function(key, val) {
       data += ',"' + val["name"] + '":"' + val["value"] + '"';
     });
-
     data = "{" + data.substr(1) + "}";
-
-    console.log("data", data);
+    Jdata = JSON.parse(pushJson(data));
+    console.log("type", typeof Jdata);
+    console.log("Jdata", Jdata);
     $.ajax({
       type: "PUT",
       url: "/update?id=" + id + "&JSPW=" + password,
-      data: JSON.parse(data),
+      data: Jdata,
       success: function(data) {
         window.location = "/viewPage?id=" + id;
       },
