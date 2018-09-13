@@ -33,6 +33,10 @@ app.get("/write", (req, res) => {
   if (query.id) {
     Post.find({ _id: query.id }, (err, result) => {
       r = result[0];
+      r.posts = r.posts
+        .replace(/\\n/g, "\n") // \n \n
+        .replace(/\\r/g, "\r")
+        .replace(/\\t/g, "\t");
       res.render("write", { result: r });
     });
   } else {
@@ -42,8 +46,13 @@ app.get("/write", (req, res) => {
 
 app.get("/viewPage", (req, res) => {
   const query = req.query;
-  Post.find({ _id: query.id }, (err, results) => {
-    res.render("viewPage", { results: results });
+  Post.find({ _id: query.id }, (err, result) => {
+    r = result[0];
+    r.posts = r.posts
+      .replace(/\\n/g, "\n") // \n \n
+      .replace(/\\r/g, "\r")
+      .replace(/\\t/g, "\t");
+    res.render("viewPage", { result: r });
   });
 });
 app.get("/postUpdate", (req, res) => {

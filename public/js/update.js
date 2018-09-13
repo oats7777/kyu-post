@@ -16,7 +16,7 @@ $(function() {
       return {};
     }
   };
-  function pushJson(str) {
+  function changeNewlineString(str) {
     return str
       .replace(/\n/g, "\\\\n") // \n \n
       .replace(/\r/g, "\\\\r")
@@ -43,17 +43,15 @@ $(function() {
       data += ',"' + val["name"] + '":"' + val["value"] + '"';
     });
     data = "{" + data.substr(1) + "}";
-    Jdata = JSON.parse(pushJson(data));
-    console.log("type", typeof Jdata);
-    console.log("Jdata", Jdata);
+    var Jdata = JSON.parse(changeNewlineString(data));
     $.ajax({
       type: "PUT",
       url: "/update?id=" + id + "&JSPW=" + password,
       data: Jdata,
-      success: function(data) {
+      success: function() {
         window.location = "/viewPage?id=" + id;
       },
-      error: function(msg) {
+      error: function() {
         alert("비밀번호가 알맞지 않습니다.");
       }
     });
