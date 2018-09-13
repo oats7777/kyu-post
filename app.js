@@ -15,7 +15,12 @@ app.use(bodyParser.json()); // 형태는 json 형태로
 app.use(bodyParser.urlencoded({ extended: true })); //이거 안해주면 form 으로 전송해도 에러나서 설정 꼭 해줘야한다
 app.use(express.static("public"));
 app.set("view engine", "pug"); // html 태그대신 읽고 쓰기 좋은 pug 사용
-
+function reverseChangeNewlineString(str) {
+  return str
+    .replace(/\\n/g, "\n") // \n \n
+    .replace(/\\r/g, "\r")
+    .replace(/\\t/g, "\t");
+}
 // Routes
 // index Pages
 app.get("/", (req, res) => {
@@ -33,10 +38,7 @@ app.get("/write", (req, res) => {
   if (query.id) {
     Post.find({ _id: query.id }, (err, result) => {
       r = result[0];
-      r.posts = r.posts
-        .replace(/\\n/g, "\n") // \n \n
-        .replace(/\\r/g, "\r")
-        .replace(/\\t/g, "\t");
+      r.posts = reverseChangeNewlineString(r.posts);
       res.render("write", { result: r });
     });
   } else {
@@ -48,10 +50,7 @@ app.get("/viewPage", (req, res) => {
   const query = req.query;
   Post.find({ _id: query.id }, (err, result) => {
     r = result[0];
-    r.posts = r.posts
-      .replace(/\\n/g, "\n") // \n \n
-      .replace(/\\r/g, "\r")
-      .replace(/\\t/g, "\t");
+    r.posts = reverseChangeNewlineString(r.posts);
     res.render("viewPage", { result: r });
   });
 });
