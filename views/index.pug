@@ -6,19 +6,20 @@ html(lang="en")
     title 게시판
     link(href="/css/index.css" rel="stylesheet")
   body
-    h1(align="center") 게시판
-    table
-      thead
-        tr
-          th 작성자
-          th 제목
+    h1(align="center" class="title") 게시판
+    table(class="Rectangle-1560-copy")
+      thead(class="Rectangle-1560")
+        tr(class="TR")
+          th(colspan="4") 제목
+          th(closepan="3") 작성자
       tbody
         each result in results
-          tr 
-            td= result.UserName
-            td
+          tr
+            td(class="tdOne" colspan="4")
               a(href="/viewPage?id="+result._id)
-                span= result.title
+                span= result.title 
+            td(colspan="3")= result.UserName
+
     div
       a(href='/write')
         button 글쓰기
