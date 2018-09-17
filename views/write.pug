@@ -11,16 +11,17 @@ html(lang="en")
     h1 작성
     form#postForm(action="/addpost" method="post")
       div
-        textarea(name="title" class="titleText" placeholder="제목" required="required")=result.title
+        input(name="title" id="titleText" placeholder="제목" required="required" value=result.title)
       div
-        textarea(name="posts" class="postsText" placeholder="내용" required="required")=result.posts
+        textarea(name="posts" id="postsText" placeholder="내용" required="required")=result.posts
       div
-        textarea(name="UserName" class="nameText" placeholder="유저이름" required="required")=result.UserName
+        input(name="UserName" class="HIDE" id="nameText" placeholder="작성자" required="required")
       div
         input(type="password" name="PW" class="HIDE" id="PW" placeholder="비밀번호" required="required")
-      input(class='HIDE' type="submit" id="PWB")
-      button(class="back" id="fm" type="button") 수정
-      a(href="/viewpage?id="+result._id class="back")
-        button(type="button") 취소
-      a(href="/" class="HIDE")
-        button(type="button") 취소
+      div(class="formButton")
+        input(class='HIDE' type="submit" id="PWB")
+        button(class="back" id="fm" type="sumbit") 수정
+        a(href="/viewpage?id="+result._id class="back")
+          button(type="button") 취소
+        a(href="/" class="HIDE")
+          button(type="button") 취소

@@ -56,7 +56,14 @@ app.get("/viewPage", (req, res) => {
 });
 app.get("/postUpdate", (req, res) => {
   const query = req.query;
-  res.redirect("/write?id=" + query.id);
+  Post.findById(query.id, function(err, post) {
+    console.log(query);
+    if (query.JSPW == post.PW) {
+      res.sendStatus(200);
+    } else {
+      res.sendStatus(500);
+    }
+  });
 });
 
 // API
@@ -74,11 +81,6 @@ app.post("/addpost", (req, res) => {
 });
 app.delete("/postDel", (req, res) => {
   const query = req.query;
-  /*Post.remove(
-    {
-      $and: [{ _id: query.id }, { PW: query.JSPW }]
-    }
-  ).then(()=>{})*/
   Post.findById(query.id, function(err, post) {
     if (query.JSPW == post.PW) {
       Post.remove({
@@ -99,17 +101,13 @@ app.put("/update", (req, res) => {
   Post.findById(query.id, function(err, post) {
     if (err) return res.status(500).json({ error: "database failure" });
     if (!post) return res.status(404).json({ error: "post not found" });
-    if (query.JSPW == post.PW) {
-      if (req.body.title) post.title = req.body.title;
-      if (req.body.posts) post.posts = req.body.posts;
-      if (req.body.UserName) post.UserName = req.body.UserName;
-      post.save(function(err) {
-        if (err) res.status(500).json({ error: "failed to update" });
-        res.sendStatus(200);
-      });
-    } else {
-      res.sendStatus(500);
-    }
+    if (req.body.title) post.title = req.body.title;
+    if (req.body.posts) post.posts = req.body.posts;
+    if (req.body.UserName) post.UserName = req.body.UserName;
+    post.save(function(err) {
+      if (err) res.status(500).json({ error: "failed to update" });
+      res.sendStatus(200);
+    });
   });
 });
 // Listening

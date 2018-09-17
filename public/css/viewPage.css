@@ -3,11 +3,30 @@ body {
   font-family: "Nanum Gothic", serif;
   font-size: 30px;
 }
+h1 {
+  text-align: center;
+  font-size: 36px;
+}
 #title {
   height: 20px;
-  width: 70%;
+  width: 750px;
 }
 #posts {
   height: 200px;
-  width: 70%;
+  width: 750px;
+}
+.note {
+  text-align: center;
+  margin: 0 auto;
+}
+textarea {
+  resize: none;
+}
+body {
+  background-color: #eeeeee;
+}
+#buttons {
+  margin: 0 auto;
+  text-align: right;
+  width: 750px;
 }

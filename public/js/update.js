@@ -32,9 +32,7 @@ $(function() {
     console.log("Test2", id);
     $(".back").hide();
   }
-
   $("#fm").click(function() {
-    var password = prompt("비밀번호를 입력해주세요");
     var id = getQueryObject().id;
     var sArr = $("#postForm").serializeArray();
     console.log("sArr", sArr);
@@ -46,13 +44,13 @@ $(function() {
     var Jdata = JSON.parse(changeNewlineString(data));
     $.ajax({
       type: "PUT",
-      url: "/update?id=" + id + "&JSPW=" + password,
+      url: "/update?id=" + id,
       data: Jdata,
       success: function() {
         window.location = "/viewPage?id=" + id;
       },
       error: function() {
-        alert("비밀번호가 알맞지 않습니다.");
+        alert("수정에러 발생");
       }
     });
   });

@@ -1,16 +1,34 @@
-.titleText {
+body {
+  background-color: #eeeeee;
+}
+h1 {
+  font-size: 36px;
+  text-align: center;
+}
+#titleText {
   height: 20px;
   width: 70%;
 }
-.postsText {
-  height: 160px;
+#postsText {
+  height: 500px;
   width: 70%;
 }
-.nameText {
+#nameText {
   height: 20px;
   width: 70%;
 }
 #PW {
   height: 20px;
   width: 70%;
+}
+#postForm {
+  text-align: center;
+}
+.formButton {
+  margin: 0 auto;
+  text-align: right;
+  width: 70%;
+}
+textarea {
+  resize: none;
 }
