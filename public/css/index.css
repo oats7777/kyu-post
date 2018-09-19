@@ -8,7 +8,7 @@
   border-collapse: collapse;
 }
 h1 {
-  margin: 35px auto;
+  margin: 20px auto;
 }
 .Rectangle-1560 {
   width: 829px;
@@ -73,4 +73,8 @@ td {
 }
 body {
   background-color: #eeeeee;
+}
+.pageLink {
+  text-align: center;
+  font-size: 20px;
 }

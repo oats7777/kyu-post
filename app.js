@@ -24,10 +24,48 @@ function reverseChangeNewlineString(str) {
 // Routes
 // index Pages
 app.get("/", (req, res) => {
-  const query = req.query; // 자바스크립트 쿼리 스트링 만 추출 (뭔가했다)
-  Post.find({}, (err, results) => {
-    // mongoDB에서 데이터 찾기
-    res.render("index", { results: results }); // results 의 값 랜더링
+  var page = req.param("page");
+  if (page == null || page == 0) {
+    page = 1;
+  }
+  var intPage = parseInt(page);
+  console.log(typeof page);
+  var totalPage = 1;
+  const countList = 10;
+  const conutPage = 10;
+  Post.count({}, (err, totalCount) => {
+    if (err) res.sendStatus(500);
+    totalPage = Math.ceil(totalCount / countList);
+    if (intPage > totalPage) {
+      page = totalPage;
+      intPage = totalPage;
+    }
+    var skipSize = (intPage - 1) * 10;
+    var startPage = Math.floor((intPage - 1) / 10) * 10 + 1;
+    var endPage = startPage + conutPage - 1;
+    if (page > 6) {
+      endPage = intPage + 4;
+      startPage = intPage - 5;
+    }
+    if (endPage > totalPage) {
+      endPage = totalPage;
+    }
+    console.log("PG", page);
+    console.log("ED", endPage);
+    console.log("ST", startPage);
+    Post.find({})
+      .skip(skipSize)
+      .limit(countList)
+      .exec(function(err, results) {
+        res.render("index", {
+          results: results,
+          pagination: totalPage,
+          start: startPage,
+          end: endPage,
+          page: page,
+          intPage: intPage
+        });
+      });
   });
 });
 

@@ -19,6 +19,20 @@ html(lang="en")
               a(href="/viewPage?id="+result._id)
                 span= result.title 
             td(colspan="3")= result.UserName
+    -var i=start;
+    div(class="pageLink")
+      unless page==1
+        a(href="/?page="+1)
+          button() 처음으로
+        a(href="/?page="+ (intPage -1))
+          button()="<"
+      while i<=end
+        a(href="/?page="+i class="next-page")= i++
+      unless page==pagination
+        a(href="/?page="+(intPage +1))
+          button()=">" 
+        a(href="/?page="+pagination)
+          button() 끝으로
     div(class="buttonLink")
       a(href='/write')
-        button 글쓰기
+        button() 글쓰기
