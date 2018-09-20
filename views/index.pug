@@ -1,4 +1,4 @@
-html(lang="en")
+html(lang="ko")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -16,12 +16,12 @@ html(lang="en")
           th() 조회수
       tbody
         -var RS=results;
-        -var j=totalCount+1;
+        -var j= totalCount-skipSize +1;
         if(RS)
           each result in results
-            -j--;
             tr
-              td(class="postsNumber")=j
+              - j--
+              td(class="postsNumber")= j
               td(class="tdOne" colspan="4")
                 a(href="/viewPage?id="+result._id)
                   span=result.title

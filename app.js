@@ -32,18 +32,19 @@ app.get("/", (req, res) => {
   }
   var intPage = parseInt(page);
   var totalPage = 1;
-  const countList = 10;
-  const conutPage = 10;
+  const pageListCount = 10;
+  const pageNumberConut = 10;
   Post.count({}, (err, totalCount) => {
     if (err) res.sendStatus(500);
-    totalPage = Math.ceil(totalCount / countList);
+    totalPage = Math.ceil(totalCount / pageListCount);
     if (intPage > totalPage) {
       page = totalPage;
       intPage = totalPage;
     }
-    var skipSize = (intPage - 1) * 10;
-    var startPage = Math.floor((intPage - 1) / 10) * 10 + 1;
-    var endPage = startPage + conutPage - 1;
+    var skipSize = (intPage - 1) * pageListCount;
+    var startPage =
+      Math.floor((intPage - 1) / pageNumberConut) * pageNumberConut + 1;
+    var endPage = startPage + pageNumberConut - 1;
     if (page > 6) {
       endPage = intPage + 4;
       startPage = intPage - 5;
@@ -54,7 +55,7 @@ app.get("/", (req, res) => {
     Post.find({})
       .sort({ date: -1 })
       .skip(skipSize)
-      .limit(countList)
+      .limit(pageListCount)
       .then(results => {
         res.render("index", {
           results: results,
@@ -63,13 +64,12 @@ app.get("/", (req, res) => {
           end: endPage,
           page: page,
           intPage: intPage,
-          totalCount: totalCount
+          totalCount: totalCount,
+          skipSize: skipSize
         });
       })
       .catch(err => {
-        res.render("index", {
-          results: ""
-        });
+        res.render("index", { results: "" });
       });
   });
 });
