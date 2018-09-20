@@ -8,7 +8,9 @@ const Post = mongoose.model("Post", {
   posts: String,
   title: String,
   UserName: String,
-  PW: String
+  PW: String,
+  date: { type: Date, default: Date.now },
+  count: { type: Number, default: 0 }
 }); // 스키마를 지정? 해주는거 같다
 const bodyParser = require("body-parser"); // bodyParser 는 form사용 가능하게 해주는거 같다
 app.use(bodyParser.json()); // 형태는 json 형태로
@@ -29,7 +31,6 @@ app.get("/", (req, res) => {
     page = 1;
   }
   var intPage = parseInt(page);
-  console.log(typeof page);
   var totalPage = 1;
   const countList = 10;
   const conutPage = 10;
@@ -50,20 +51,24 @@ app.get("/", (req, res) => {
     if (endPage > totalPage) {
       endPage = totalPage;
     }
-    console.log("PG", page);
-    console.log("ED", endPage);
-    console.log("ST", startPage);
     Post.find({})
+      .sort({ date: -1 })
       .skip(skipSize)
       .limit(countList)
-      .exec(function(err, results) {
+      .then(results => {
         res.render("index", {
           results: results,
           pagination: totalPage,
           start: startPage,
           end: endPage,
           page: page,
-          intPage: intPage
+          intPage: intPage,
+          totalCount: totalCount
+        });
+      })
+      .catch(err => {
+        res.render("index", {
+          results: ""
         });
       });
   });
@@ -86,10 +91,12 @@ app.get("/write", (req, res) => {
 
 app.get("/viewPage", (req, res) => {
   const query = req.query;
-  Post.find({ _id: query.id }, (err, result) => {
-    r = result[0];
-    r.posts = reverseChangeNewlineString(r.posts);
-    res.render("viewPage", { result: r });
+  Post.findOne({ _id: query.id }, (err, result) => {
+    result.posts = reverseChangeNewlineString(result.posts);
+    result.count += 1;
+    result.save(function(err) {
+      res.render("viewPage", { result: result });
+    });
   });
 });
 app.get("/postUpdate", (req, res) => {

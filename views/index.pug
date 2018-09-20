@@ -9,30 +9,42 @@ html(lang="en")
     h1(align="center" class="title") 게시판
     table(class="Rectangle-1560-copy")
       thead(class="Rectangle-1560")
-        tr(class="TR")
+        tr
+          th(class="postsNumber") No.
           th(colspan="4") 제목
-          th(closepan="3") 작성자
+          th(colspan="1") 작성자
+          th() 조회수
       tbody
-        each result in results
+        -var RS=results;
+        -var j=totalCount+1;
+        if(RS)
+          each result in results
+            -j--;
+            tr
+              td(class="postsNumber")=j
+              td(class="tdOne" colspan="4")
+                a(href="/viewPage?id="+result._id)
+                  span=result.title
+              td(colspan="1")=result.UserName
+              td()=result.count
+        else
           tr
-            td(class="tdOne" colspan="4")
-              a(href="/viewPage?id="+result._id)
-                span= result.title 
-            td(colspan="3")= result.UserName
+            td(colspan="5" class="notPosts")="게시물이없습니다."
     -var i=start;
-    div(class="pageLink")
-      unless page==1
-        a(href="/?page="+1)
-          button() 처음으로
-        a(href="/?page="+ (intPage -1))
-          button()="<"
-      while i<=end
-        a(href="/?page="+i class="next-page")= i++
-      unless page==pagination
-        a(href="/?page="+(intPage +1))
-          button()=">" 
-        a(href="/?page="+pagination)
-          button() 끝으로
+    unless isNaN(page)
+      div(class="pageLink")
+        unless page==1 
+          a(href="/?page="+1)
+            button(class="start")="<<"
+          a(href="/?page="+ (intPage -1))
+            button(class="back")="< 이전 페이지"
+        while i<=end
+          a(href="/?page="+i class="nextPage")= i++
+        unless page==pagination
+          a(href="/?page="+(intPage +1))
+            button(class="go")="다음 페이지 >" 
+          a(href="/?page="+pagination)
+            button(class="end")=">>"
     div(class="buttonLink")
       a(href='/write')
         button() 글쓰기
