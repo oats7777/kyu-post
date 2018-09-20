@@ -7,6 +7,16 @@ h1 {
   text-align: center;
   font-size: 36px;
 }
+button {
+  background-color: #f7f7f7;
+  border: solid 1px #e1dedd;
+  font-size: 12px;
+  line-height: 18px;
+  color: #555555;
+  width: 75px;
+  height: 35px;
+  font-size: 15px;
+}
 #title {
   height: 20px;
   width: 750px;

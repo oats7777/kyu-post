@@ -135,3 +135,15 @@ body {
   margin: 0 auto;
   padding: 0px 0px 0px 0px;
 }
+.WB {
+  margin: 15px auto;
+  width: 50px;
+  height: 31px;
+  background-color: #f7f7f7;
+  border: solid 1px #e1dedd;
+  line-height: 18px;
+  color: #555555;
+  width: 75px;
+  height: 35px;
+  font-size: 15px;
+}
