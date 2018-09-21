@@ -33,18 +33,21 @@ html(lang="ko")
     -var i=start;
     unless isNaN(page)
       div(class="pageLink")
-        unless page==1 
-          a(href="/?page="+1)
-            button(class="start")="<<"
-          a(href="/?page="+ (intPage -1))
-            button(class="back")="< 이전 페이지"
-        while i<=end
-          a(href="/?page="+i class="nextPage")= i++
+        unless page==1
+          div(class="buttonsA")
+            a(href="/?page="+1)
+              button(class="start")="<<"
+            a(href="/?page="+ (intPage -1))
+              button(class="back")="< 이전 페이지"
+        div    
+          while i<=end
+            a(href="/?page="+i class="pageNum")= i++
         unless page==pagination
-          a(href="/?page="+(intPage +1))
-            button(class="go")="다음 페이지 >" 
-          a(href="/?page="+pagination)
-            button(class="end")=">>"
+          div(class="buttonsB")
+            a(href="/?page="+(intPage +1))
+              button(class="go")="다음 페이지 >" 
+            a(href="/?page="+pagination)
+              button(class="end")=">>"
     div(class="buttonLink")
       a(href='/write')
         button(class="WB") 글쓰기

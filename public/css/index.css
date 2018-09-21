@@ -76,6 +76,7 @@ body {
 }
 
 .pageLink {
+  position: relative;
   text-align: center;
   width: 926px;
   height: 61px;
@@ -126,9 +127,12 @@ body {
   color: #555555;
   cursor: pointer;
 }
-.nextPage {
-  margin: 26px 20px 24px 20px;
+.pageNum {
+  box-sizing: border-box;
+  padding: 18px;
   font-size: 16px;
+  display: inline-block;
+  width: 40px;
 }
 .notPosts {
   text-align: center;
@@ -151,4 +155,18 @@ body {
   height: 35px;
   font-size: 15px;
   cursor: pointer;
+}
+.buttonsB {
+  height: 60px;
+  width: 250px;
+  position: absolute;
+  top: 0;
+  right: 7px;
+}
+.buttonsA {
+  height: 60px;
+  width: 250px;
+  position: absolute;
+  top: 0;
+  left: 7px;
 }
