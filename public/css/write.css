@@ -3,6 +3,7 @@ body {
 }
 h1 {
   font-size: 36px;
+  margin: 20px auto;
   text-align: center;
 }
 button {
@@ -17,28 +18,41 @@ button {
 }
 #titleText {
   height: 20px;
-  width: 70%;
+  width: 926px;
 }
 #postsText {
   height: 500px;
-  width: 70%;
+  width: 926px;
 }
 #nameText {
   height: 20px;
-  width: 70%;
+  width: 150px;
 }
 #PW {
   height: 20px;
-  width: 70%;
+  width: 150px;
 }
 #postForm {
   text-align: center;
+  margin: 59px auto;
 }
 .formButton {
   margin: 0 auto;
   text-align: right;
-  width: 70%;
+  width: 926px;
 }
 textarea {
   resize: none;
+}
+.userForm {
+  width: 926px;
+  margin: 0 auto;
+  text-align: left;
+}
+.One,
+.Two {
+  display: inline-block;
+}
+.One {
+  margin: 0 115px 0 0;
 }

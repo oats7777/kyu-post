@@ -3,10 +3,6 @@ body {
   font-family: "Nanum Gothic", serif;
   font-size: 30px;
 }
-h1 {
-  text-align: center;
-  font-size: 36px;
-}
 button {
   background-color: #f7f7f7;
   border: solid 1px #e1dedd;
@@ -18,16 +14,28 @@ button {
   font-size: 15px;
 }
 #title {
-  height: 20px;
-  width: 750px;
+  margin: 0 0 0 0;
 }
-#posts {
-  height: 200px;
-  width: 750px;
+.titleDiv {
+  background-color: #fbfbfb;
+  width: 926px;
+  color: #555555;
+  font-weight: bold;
+  box-sizing: border-box;
+  padding: 17px 0 17px 14px;
+  border-bottom: 1px solid #eeeeee;
+}
+.postsDiv {
+  font-size: 14px;
+  width: 926px;
+  white-space: pre-line;
+  box-sizing: border-box;
+  padding: 17px 0 17px 14px;
 }
 .note {
-  text-align: center;
-  margin: 0 auto;
+  background-color: #ffffff;
+  width: 926px;
+  box-shadow: 1.3px 1.5px 1px 0 rgba(0, 0, 0, 0.1);
 }
 textarea {
   resize: none;
@@ -38,5 +46,15 @@ body {
 #buttons {
   margin: 0 auto;
   text-align: right;
-  width: 750px;
+  width: 926px;
+}
+.del {
+  cursor: pointer;
+}
+#updatePwCheck {
+  cursor: pointer;
+}
+.main {
+  margin: 93px auto;
+  width: 926px;
 }

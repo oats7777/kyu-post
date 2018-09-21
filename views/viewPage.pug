@@ -8,16 +8,16 @@ html(lang="en")
     link(href="/css/viewPage.css" rel="stylesheet")
     title 게시판보기
   body
-    h1=result.UserName + "(이)가 쓴글"
-    div
+    div(class="main")
+      div
+        a(href="/")
+          button(style="cursor: pointer;") 메인으로
       div(class="note")
-        div
-          textarea(readonly id="title")=result.title
-        div
-          textarea(readonly id="posts")=result.posts
+        div(class="titleDiv")
+          h5(id="title")=result.title
+        div(class="postsDiv")
+          p(id="posts")=result.posts
       div(id="buttons")
         div(id="buttonB")
           button(class="del" type="button") 삭제
           button(id="updatePwCheck") 수정
-          a(href="/")
-            button 메인으로

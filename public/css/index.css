@@ -91,6 +91,7 @@ body {
   font-size: 12px;
   line-height: 18px;
   color: #555555;
+  cursor: pointer;
 }
 .start {
   margin: 15px 16px 23px 15px;
@@ -101,6 +102,7 @@ body {
   font-size: 12px;
   line-height: 18px;
   color: #555555;
+  cursor: pointer;
 }
 .end {
   margin: 15px 23px 16px 15px;
@@ -111,6 +113,7 @@ body {
   font-size: 12px;
   line-height: 18px;
   color: #555555;
+  cursor: pointer;
 }
 .go {
   margin: 15px 23px 16px 15px;
@@ -121,6 +124,7 @@ body {
   font-size: 12px;
   line-height: 18px;
   color: #555555;
+  cursor: pointer;
 }
 .nextPage {
   margin: 26px 20px 24px 20px;
@@ -146,4 +150,5 @@ body {
   width: 75px;
   height: 35px;
   font-size: 15px;
+  cursor: pointer;
 }

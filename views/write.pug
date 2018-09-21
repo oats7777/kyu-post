@@ -10,19 +10,20 @@ html(lang="en")
   body
     h1 작성
     form#postForm(action="/addpost" method="post")
-      div(class="One")
-        input(name="UserName" class="HIDE" id="nameText" placeholder="작성자" required="required")
-      div(class="Two")
-        input(type="password" name="PW" class="HIDE" id="PW" placeholder="비밀번호" required="required")
+      div(class="userForm")
+        div(class="One")
+          input(name="UserName" class="HIDE" id="nameText" placeholder="작성자" required="required")
+        div(class="Two")
+          input(type="password" name="PW" class="HIDE" id="PW" placeholder="비밀번호" required="required")
       div
         input(name="title" id="titleText" placeholder="제목" required="required" value=result.title)
       div
         textarea(name="posts" id="postsText" placeholder="내용" required="required")=result.posts
 
       div(class="formButton")
-        button(class='HIDE' type="submit" id="PWB") 작성
-        button(class="back" id="fm" type="sumbit") 수정
         a(href="/viewpage?id="+result._id class="back")
-          button(type="button") 취소
+          button(type="button" style="cursor: pointer;" ) 취소
         a(href="/" class="HIDE")
-          button(type="button") 취소
+          button(type="button" style="cursor: pointer;")  취소
+        button(class='HIDE' type="submit" id="PWB" style="cursor: pointer;") 작성
+        button(class="back" id="fm" type="sumbit" style="cursor: pointer;") 수정
