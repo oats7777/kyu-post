@@ -9,6 +9,7 @@
 }
 h1 {
   margin: 20px auto;
+  font-family: sans-serif;
 }
 .Rectangle-1560 {
   width: 926px;
@@ -153,7 +154,7 @@ body {
   padding: 0px 0px 0px 0px;
 }
 .WB {
-  margin: 30px auto;
+  margin: 16px auto;
   width: 50px;
   height: 31px;
   background-color: #f7f7f7;
