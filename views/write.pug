@@ -13,7 +13,7 @@ html(lang="en")
     form#postForm(action="/addpost" method="post")
       div(id="userForm" class="HIDE")
         div(class="One")
-          label(for = "nameText" style="float: left; margin-right : 8px;") 작성자
+          label(for = "nameText" style="float: left; margin-right : 11px;") 작성자
           input(name="UserName" class="HIDE" id="nameText" placeholder="작성자" required="required")
         div(class="Two")
           label(for = "PW" style="float: left; margin-right : 8px;") 비밀번호
@@ -26,8 +26,8 @@ html(lang="en")
         textarea(name="posts" id="postsText" placeholder="내용" required="required")=result.posts
 
       div(class="formButton")
-        button(class='HIDE' type="submit" id="PWB" style="cursor: pointer;") 작성
-        button(class="back" id="fm" type="sumbit" style="cursor: pointer;") 수정
+        button(class='HIDE' type="submit" id="PWB" style="cursor: pointer; margin-right : 8px;") 작성
+        button(class="back" id="fm" type="sumbit" style="cursor: pointer; margin-right : 8px;") 수정
         a(href="/viewpage?id="+result._id class="back")
           button(type="button" style="cursor: pointer;" ) 취소
         a(href="/" class="HIDE")

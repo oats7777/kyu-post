@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Nanum+Gothic");
-body {
-  font-family: "Nanum Gothic", serif;
-  font-size: 30px;
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
 }
 button {
   background-color: #f7f7f7;
@@ -14,6 +14,7 @@ button {
   font-size: 15px;
 }
 #title {
+  font-size: 32px;
   margin: 0 0 0 0;
 }
 .titleDiv {
@@ -25,12 +26,15 @@ button {
   padding: 17px 0 17px 14px;
   border-bottom: 1px solid #eeeeee;
 }
+#posts {
+  line-height: 28px;
+}
 .postsDiv {
   font-size: 14px;
   width: 926px;
   white-space: pre-line;
   box-sizing: border-box;
-  padding: 17px 0 17px 14px;
+  padding: 17px 17px 17px 14px;
 }
 .note {
   background-color: #ffffff;
@@ -50,6 +54,7 @@ body {
 }
 .del {
   cursor: pointer;
+  margin-right: 8px;
 }
 #updatePwCheck {
   cursor: pointer;
@@ -59,8 +64,8 @@ body {
   width: 926px;
 }
 #buttonB {
-  margin: 30px auto;
+  margin: 16px auto;
 }
 #buttonA {
-  margin-bottom: 30px;
+  margin-bottom: 16px;
 }

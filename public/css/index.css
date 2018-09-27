@@ -1,10 +1,12 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
 .Rectangle-1560-copy {
   margin: 59px auto 25px;
   width: 926px;
   background-color: #ffffff;
   box-shadow: 1.3px 1.5px 1px 0 rgba(0, 0, 0, 0.1);
-  border: 1px solid #eeeeee;
   border-collapse: collapse;
 }
 h1 {
@@ -18,6 +20,8 @@ h1 {
   font-size: 36px;
 }
 th {
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
   width: 120px;
   height: 43px;
   font-family: "Noto Sans KR", sans-serif;
@@ -25,6 +29,18 @@ th {
   line-height: 28px;
   letter-spacing: -0.4px;
   color: #777777;
+}
+.CN {
+  border-right: #eeeeee;
+}
+tr {
+  border-bottom: 1px solid #eeeeee;
+}
+tr:last-child {
+  border: 0;
+}
+td:last-child {
+  border: 0;
 }
 .tdOne {
   padding-left: 14px;
@@ -34,7 +50,6 @@ th {
   line-height: 28px;
   letter-spacing: -0.4px;
   text-align: left;
-  color: #333333;
 }
 .tdTwo {
   padding-left: 14px;
@@ -46,6 +61,8 @@ th {
   color: #333333;
 }
 td {
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
   padding-right: 12px;
   width: 120px;
   height: 50px;
@@ -56,29 +73,29 @@ td {
   color: #555555;
 }
 a:link {
+  font-size: 14px;
   text-decoration: none;
-  color: #555555;
+  color: #333333;
 }
 a:visited {
+  font-size: 14px;
   text-decoration: none;
-  color: #555555;
+  color: #333333;
 }
 a:active {
+  font-size: 14px;
   text-decoration: none;
-  color: #555555;
+  color: #333333;
 }
 a:hover {
-  text-decoration: underline;
-  color: #555555;
+  font-size: 14px;
+  text-decoration: none;
+  color: #333333;
 }
 .buttonLink {
   text-align: right;
   margin: 0 auto;
   width: 926px;
-}
-th,
-td {
-  border: 1px solid #eeeeee;
 }
 body {
   background-color: #eeeeee;
@@ -138,7 +155,7 @@ body {
 }
 .pageNum {
   box-sizing: border-box;
-  padding: 18px;
+  /*padding: 18px;*/
   font-size: 16px;
   display: inline-block;
   width: 40px;
@@ -153,7 +170,7 @@ body {
   padding: 0px 0px 0px 0px;
 }
 .WB {
-  margin: 30px auto;
+  margin: 16px auto;
   width: 50px;
   height: 31px;
   background-color: #f7f7f7;
