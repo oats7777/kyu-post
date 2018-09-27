@@ -26,11 +26,20 @@ th {
   letter-spacing: -0.4px;
   color: #777777;
 }
-.tdone {
+.tdOne {
   padding-left: 14px;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 14px;
   font-weight: bold;
+  line-height: 28px;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #333333;
+}
+.tdTwo {
+  padding-left: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
   line-height: 28px;
   letter-spacing: -0.4px;
   text-align: left;
