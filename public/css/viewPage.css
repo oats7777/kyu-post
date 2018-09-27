@@ -55,6 +55,12 @@ body {
   cursor: pointer;
 }
 .main {
-  margin: 93px auto;
+  margin: 63px auto;
   width: 926px;
+}
+#buttonB {
+  margin: 30px auto;
+}
+#buttonA {
+  margin-bottom: 30px;
 }
