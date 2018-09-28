@@ -13,8 +13,8 @@ html(lang="ko")
           th(class="postsNumber") No.
           th(colspan="4") 제목
           th(colspan="1") 작성자
-          th() 조회수
-      tbody
+          th(class="CN") 조회수
+      tbody()
         -var RS=results;
         -var j= totalCount-skipSize +1;
         if(RS)
@@ -41,7 +41,11 @@ html(lang="ko")
               button(class="back")="< 이전 페이지"
         div
           while i<=end
-            a(href="/?page="+i class="pageNum")= i++
+            if(page == i)
+              p(class="pageNum" style="color:#ff6d37")= i
+            else
+              a(href="/?page="+i class="pageNum")= i
+            - i++
         unless page==pagination
           div(class="buttonsB")
             a(href="/?page="+(intPage +1))

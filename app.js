@@ -29,7 +29,7 @@ function reverseChangeNewlineString(str) {
 // Routes
 // index Pages
 app.get("/", (req, res) => {
-  var page = req.param("page");
+  var page = req.query.page;
   if (page == null || page == 0) {
     page = 1;
   }
