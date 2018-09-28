@@ -80,7 +80,6 @@ app.get("/", (req, res) => {
 // write page
 app.get("/write", (req, res) => {
   const query = req.query;
-  console.log(query);
   if (query.id) {
     Post.find({ _id: query.id }, (err, result) => {
       r = result[0];
@@ -105,7 +104,6 @@ app.get("/viewPage", (req, res) => {
 app.get("/postUpdate", (req, res) => {
   const query = req.query;
   Post.findById(query.id, function(err, post) {
-    console.log(query);
     if (query.JSPW == post.PW) {
       res.sendStatus(200);
     } else {
@@ -143,7 +141,6 @@ app.delete("/postDel", (req, res) => {
 });
 app.put("/update", (req, res) => {
   const query = req.query;
-  console.log(query);
 
   // update db query
   Post.findById(query.id, function(err, post) {
