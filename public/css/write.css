@@ -26,22 +26,26 @@ button {
   height: 20px;
   width: 926px;
   font-size: 16px;
+  padding: 17px 14px 17px 14px;
 }
 #postsText {
   height: 500px;
   width: 926px;
   font-size: 16px;
   line-height: 28px;
+  padding: 17px 14px 17px 14px;
 }
 #nameText {
   height: 20px;
   width: 150px;
   font-size: 16px;
+  padding: 17px 14px 17px 14px;
 }
 #PW {
   height: 20px;
   width: 150px;
   font-size: 16px;
+  padding: 17px 14px 17px 14px;
 }
 #postForm {
   text-align: center;

@@ -20,7 +20,7 @@ html(lang="en")
           input(type="password" name="PW" class="HIDE" id="PW" placeholder="비밀번호" required="required")
       div(class="titleDiv")
         label(for = "titleText" style="float: left; margin-right : 8px;") 제목
-        input(name="title" id="titleText" maxlength="20" placeholder="글의 제목을 20자 내로 작성해주세요." required="required" value=result.title)
+        input(name="title" id="titleText" maxlength="40" placeholder="글의 제목을 40자 내로 작성해주세요." required="required" value=result.title)
       div(class="postsDiv")
         label(for = "postsText" style="float: left; margin-right : 8px;") 내용
         textarea(name="posts" id="postsText" placeholder="익명으로 남기고 싶은 이야기를 자유롭게 작성해 주세요." required="required")=result.posts
