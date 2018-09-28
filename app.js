@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
   var totalPage = 1;
   const pageListCount = 10;
   const pageNumberConut = 10;
-  Post.count({}, (err, totalCount) => {
+  Post.countDocuments({}, (err, totalCount) => {
     if (err) res.sendStatus(500);
     totalPage = Math.ceil(totalCount / pageListCount);
     if (intPage > totalPage) {
@@ -131,7 +131,7 @@ app.delete("/postDel", (req, res) => {
   const query = req.query;
   Post.findById(query.id, function(err, post) {
     if (query.JSPW == post.PW) {
-      Post.remove({
+      Post.deleteOne({
         $and: [{ _id: query.id }, { PW: query.JSPW }]
       }).then(() => {
         res.sendStatus(200);
