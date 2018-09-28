@@ -23,7 +23,7 @@ button {
   color: #555555;
   font-weight: bold;
   box-sizing: border-box;
-  padding: 17px 0 17px 14px;
+  padding: 17px 14px 17px 14px;
   border-bottom: 1px solid #eeeeee;
 }
 #posts {
