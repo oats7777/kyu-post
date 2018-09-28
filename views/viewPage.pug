@@ -11,7 +11,7 @@ html(lang="en")
     div(class="main")
       div(id="buttonA")
         a(href="/")
-          button(style="cursor: pointer;") 메인으로
+          button(style="cursor: pointer;") 이전으로
       div(class="note")
         div(class="titleDiv")
           h5(id="title")=result.title
@@ -19,5 +19,6 @@ html(lang="en")
           p(id="posts")=result.posts
       div(id="buttons")
         div(id="buttonB")
-          button(class="del" type="button") 삭제
           button(id="updatePwCheck") 수정
+          button(class="del" type="button") 삭제
+          

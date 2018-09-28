@@ -54,10 +54,12 @@ body {
 }
 .del {
   cursor: pointer;
-  margin-right: 8px;
 }
 #updatePwCheck {
   cursor: pointer;
+  margin-right: 8px;
+  background-color: #ff4e00;
+  color: #ffffff;
 }
 .main {
   margin: 63px auto;
