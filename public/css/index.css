@@ -33,6 +33,9 @@ th {
 }
 .CN {
   border-right: #eeeeee;
+  width: 45px;
+  text-align: center;
+  padding: 0 0 0 0;
 }
 tr {
   border-bottom: 1px solid #eeeeee;

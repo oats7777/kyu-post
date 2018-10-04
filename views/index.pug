@@ -26,7 +26,7 @@ html(lang="ko")
                 a(href="/viewPage?id="+result._id)
                   span=result.title
               td(class="tdTwo" colspan="1")=result.UserName
-              td()=result.count
+              td(class="CN")=result.count
         else
           tr
             td(colspan="5" class="notPosts")="게시물이없습니다."
